@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ニュースサイト</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const articles = Array.from(document.querySelectorAll(".news-list article"));
+      const oneMonthAgo = new Date();
+      oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+      articles.forEach(article => {
+        const dateText = article.querySelector(".date").textContent;
+        const date = new Date(dateText.replace(/年|月/g, '/').replace(/日/, ''));
+        if (date < oneMonthAgo) {
+          article.remove();
+        }
+      });
+
+      articles.sort((a, b) => {
+        const dateA = new Date(a.querySelector(".date").textContent.replace(/年|月/g, '/').replace(/日/, ''));
+        const dateB = new Date(b.querySelector(".date").textContent.replace(/年|月/g, '/').replace(/日/, ''));
+        return dateB - dateA;
+      });
+
+      const container = document.querySelector(".news-list");
+      container.innerHTML = "";
+      articles.forEach(article => container.appendChild(article));
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>最新ニュース</h1>
+  </header>
+  <main>
+    <section class="news-list">
+
+      <article>
+        <h2><a href="articles/news_2025-10-08.html">新製品発表！</a></h2>
+        <p class="date">2025年10月08日</p>
+        <p class="summary">本日、新しいスマートフォンが発表されました。</p>
+      </article>
+    
+      <article>
+        <h2><a href="articles/news_2025-10-07.html">台風の影響</a></h2>
+        <p class="date">2025年10月07日</p>
+        <p class="summary">台風14号が関東地方に接近しています。</p>
+      </article>
+    
+      <article>
+        <h2><a href="articles/news_2025-10-06.html">経済成長率発表</a></h2>
+        <p class="date">2025年10月06日</p>
+        <p class="summary">今年の経済成長率が予測を上回りました。</p>
+      </article>
+    
+      <article>
+        <h2><a href="articles/news_2025-10-05.html">新しい交通ルール</a></h2>
+        <p class="date">2025年10月05日</p>
+        <p class="summary">新しい交通ルールが来月から施行されます。</p>
+      </article>
+    
+      <article>
+        <h2><a href="articles/news_2025-10-04.html">国際会議開催</a></h2>
+        <p class="date">2025年10月04日</p>
+        <p class="summary">国際会議が東京で開催されました。</p>
+      </article>
+    
+      <article>
+        <h2><a href="articles/news_2025-10-03.html">人気アプリ更新</a></h2>
+        <p class="date">2025年10月03日</p>
+        <p class="summary">人気アプリが新機能を追加して更新されました。</p>
+      </article>
+    
+      <article>
+        <h2><a href="articles/news_2025-10-02.html">地域イベント開催</a></h2>
+        <p class="date">2025年10月02日</p>
+        <p class="summary">地域の祭りが盛大に開催されました。</p>
+      </article>
+    
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 ニュースサイト</p>
+  </footer>
+</body>
+</html>

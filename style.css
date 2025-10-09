@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+h1, h2 {
+    text-align: center;
+}
+#input-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#product-name {
+    width: 300px;
+    padding: 8px;
+}
+button {
+    padding: 8px 12px;
+}
+#price-history {
+    width: 80%;
+    margin: 0 auto 40px auto;
+}
+#history-section {
+    width: 300px;
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+#history-list {
+    list-style-type: none;
+    padding: 0;
+}
+#history-list li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
